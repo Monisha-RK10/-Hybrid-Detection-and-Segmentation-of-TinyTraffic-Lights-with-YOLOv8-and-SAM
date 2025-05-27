@@ -1,0 +1,17 @@
+# Detection
+ultralytics==8.1.16  # or latest stable known to work
+
+# Segmentation (SAM)
+git+https://github.com/facebookresearch/segment-anything.git
+
+# Computer Vision
+opencv-python
+matplotlib
+
+# Deep Learning
+torch>=2.0.0
+torchvision
+
+# Utilities
+tqdm
+numpy
