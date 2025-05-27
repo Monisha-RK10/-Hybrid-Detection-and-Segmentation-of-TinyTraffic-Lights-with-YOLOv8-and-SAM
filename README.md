@@ -30,7 +30,3 @@ Small traffic light detection project using YOLOv8 for detection and SAM for seg
 
 ### Detection (False positive)
 ![YOLOv8 Result](results/false_positive.jpg)
-
- **Try it in Colab**:
-- [YOLOv8 Notebook](notebooks/yolov8_for_small_traffic_lights_detection.py)
-- [SAM Notebook]()
