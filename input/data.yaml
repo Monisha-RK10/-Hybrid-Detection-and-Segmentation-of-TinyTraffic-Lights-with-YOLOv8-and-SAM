@@ -1,0 +1,8 @@
+path: /content/drive/MyDrive/TrafficSignal
+train: train/images
+val: val/images
+test: test/images
+
+nc: 2  # Number of classes
+
+names: ['red', 'green']
