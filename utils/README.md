@@ -22,11 +22,10 @@ Converts COCO-style segmentation annotations into YOLOv8 format for selected ima
 
 Make sure to update `paths` inside each script before running. 
 All scripts assume the folder structure:
-TrafficSignal/
-`├── images/`
-`│ ├── train/`
--│ └── val/
--├── labels/
--│ ├── train/
--│ └── val/
--├── annotations.json
+utils/
+├── README.md
+├── dataset_split.py
+├── dataset_split_seg.py
+├── yolo_label_gen.py
+├── yolo_seg_label_gen.py
+
