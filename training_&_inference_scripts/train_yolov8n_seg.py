@@ -1,4 +1,4 @@
-# Train YOLOv8ns segmenter model
+# Train YOLOv8n segmenter model
 
 from ultralytics import YOLO
 
