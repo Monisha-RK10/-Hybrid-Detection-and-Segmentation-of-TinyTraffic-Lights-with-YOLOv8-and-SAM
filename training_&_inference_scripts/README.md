@@ -1,6 +1,6 @@
 # Main Training & Inference Scripts
 
-This folder contains scripts for training and evaluating YOLOv8 models for both detection and segmentation tasks on the Bosch Small Traffic Lights dataset.
+This folder contains scripts for training and evaluating YOLOv8 and SAM models for both detection and segmentation tasks on the Bosch Small Traffic Lights dataset.
 
 ---
 
