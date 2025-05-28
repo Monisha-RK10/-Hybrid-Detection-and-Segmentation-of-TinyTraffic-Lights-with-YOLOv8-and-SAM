@@ -21,6 +21,7 @@ Converts COCO-style segmentation annotations into YOLOv8 format for selected ima
 ---
 
 Make sure to update `paths` inside each script before running. 
+
 ├── images/
 
 │ ├── train/
