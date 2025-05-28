@@ -1,0 +1,12 @@
+path: /content/drive/MyDrive/TrafficSignal/segmentation_updated
+
+train: images/train
+val: images/val
+
+# These should now point to:
+#   - labels/train
+#   - labels/val
+# inside the same `path` directory
+
+nc: 2
+names: ['Red', 'Green']
