@@ -1,4 +1,6 @@
-# # Train YOLOv8s segmenter model
+# Train YOLOv8s segmenter model
+
+from ultralytics import YOLO
 
 !yolo task=segment mode=train model=yolov8s-seg.pt \
     data=/content/drive/MyDrive/TrafficSignal/segmentation_updated/data.yaml \
