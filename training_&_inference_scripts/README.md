@@ -21,11 +21,11 @@ Performs inference using a trained YOLOv8 detection model and exports annotated 
 
 ---
 
-### `train_yolov8ns_seg.py`
+### `train_yolov8n_seg.py`
 Trains a **YOLOv8n-seg** model for segmentation using polygon masks.
 
 - Task: **Segmentation**
-- Model: YOLOv8ns-seg.pt 
+- Model: YOLOv8n-seg.pt 
 - Requires: Polygon .txt labels in YOLOv8-seg format
 
 ---
