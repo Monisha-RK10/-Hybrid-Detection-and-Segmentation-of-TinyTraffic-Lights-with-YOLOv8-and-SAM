@@ -32,9 +32,9 @@ Note: These results may also be affected by annotation quality. Precisely annota
 ![YOLOv8 Result](results/mixed.jpg)
 
 ### Segmentation (SAM)
-![SAM Result](results/segmentation_on_green.png)
-![SAM Result](results/segmentation_on_red.png)
-![SAM Result](results/segmentation_on_red_green.png)
+![SAM Result](results/sam_green.png)
+![SAM Result](results/sam_red.png)
+![SAM Result](results/sam_mixed.png)
 
 ### Detection (False positive)
 ![YOLOv8 Result](results/false_positive.jpg)
