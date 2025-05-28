@@ -4,5 +4,4 @@ from ultralytics import YOLO
 # Train model by setting epoch, image size, batch size.
 
 model = YOLO('yolov8n.yaml')  # or 'yolov8s.yaml'
-model.train(data='/content/drive/MyDrive/TrafficSignal/data.yaml',
-            epochs=50, imgsz=640, batch=16)
+model.train(data='/content/drive/MyDrive/TrafficSignal/data.yaml', epochs=100, patience=20,  imgsz=640, batch=16)
