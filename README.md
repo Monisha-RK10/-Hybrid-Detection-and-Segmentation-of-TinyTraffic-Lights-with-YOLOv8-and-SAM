@@ -27,9 +27,9 @@ Note: These results may also be affected by annotation quality. Precisely annota
 ## Sample Predictions for Detection (via YOLOv8n) & Segmentation (via SAM)
 
 ### Detection (YOLOv8n)
-![YOLOv8 Result](results/good_detection_green.jpg)
-![YOLOv8 Result](results/good_detection_red.jpg)
-![YOLOv8 Result](results/good_detection_mixed.jpg)
+![YOLOv8 Result](results/green.jpg)
+![YOLOv8 Result](results/red.jpg)
+![YOLOv8 Result](results/mixed.jpg)
 
 ### Segmentation (SAM)
 ![SAM Result](results/segmentation_on_green.png)
