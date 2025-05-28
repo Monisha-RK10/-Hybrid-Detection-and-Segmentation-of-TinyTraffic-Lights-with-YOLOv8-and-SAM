@@ -2,14 +2,18 @@ import os
 import random
 import shutil
 
-# Paths
+# Base folder path
 base_path = "/content/drive/MyDrive/TrafficSignal/segmentation_updated"
+
+# Input directories
 image_dir = os.path.join(base_path, "images/train")
 label_dir = os.path.join(base_path, "labels/train")
 
-# Output paths
+# Output directories
+# Images
 train_img_out = os.path.join(base_path, "images/train")
 val_img_out = os.path.join(base_path, "images/val")
+# Labels
 train_lbl_out = os.path.join(base_path, "labels/train")
 val_lbl_out = os.path.join(base_path, "labels/val")
 
@@ -17,9 +21,11 @@ val_lbl_out = os.path.join(base_path, "labels/val")
 os.makedirs(val_img_out, exist_ok=True)
 os.makedirs(val_lbl_out, exist_ok=True)
 
-# Split 80/20
+# Get all image filenames
 all_images = [f for f in os.listdir(image_dir) if f.endswith(".png")]
 random.shuffle(all_images)
+
+# Define 80/20 split
 val_split = int(0.2 * len(all_images))
 val_images = all_images[:val_split]
 
