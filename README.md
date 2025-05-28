@@ -10,9 +10,9 @@ Small traffic light detection project using YOLOv8 for detection and SAM for seg
 ## Model Output (Detection via YOLOv8n)
 | Model        | Precision |  Recall  | mAP@0.5  | mAP@0.5:0.95 | Notes                      |
 |--------------|-----------|----------|----------|--------------|--------------------------- |
-| Red          | 0.77      | 0.52     |  0.58    |  0.30        | Common false positive      |
-| Green        | 0.83      | 0.70     |  0.73    |  0.38        | High recall & precision    |
-| All          | 0.80      | 0.61     |  0.66    |  0.34        | Faster inference (≈149 FPS)|
+| Red          | 0.83      | 0.56     |  0.68    |  0.38        | Common false positive      |
+| Green        | 0.91      | 0.77     |  0.80    |  0.43        | High recall & precision    |
+| All          | 0.87      | 0.67     |  0.74    |  0.41        | Faster inference (≈149 FPS)|
 
 ## Model Output (Segmention via YOLOv8n/s)
 | Model       | Params | GFLOPs | Box mAP50 | Box mAP50-95 | Mask mAP50 | Mask mAP50-95 |
