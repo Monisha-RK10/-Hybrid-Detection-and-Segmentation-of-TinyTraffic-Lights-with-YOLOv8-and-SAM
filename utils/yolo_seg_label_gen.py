@@ -48,7 +48,9 @@ for image_id, file_name in image_id_to_filename.items():
         w = (x_max - x_min) / width
         h = (y_max - y_min) / height
 
-        # Normalize segmentation points
+        # Normalize segmentation points 
+        # if i % 2 == 0: means X coordinate (even indices), divide it by width.
+        # if i % 2 != 0: means Y coordinate (odd indices), divide it by height.
         norm_seg = [str(round(x / width, 6)) if i % 2 == 0 else str(round(x / height, 6))
                     for i, x in enumerate(segmentation)]
 
