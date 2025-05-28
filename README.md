@@ -21,6 +21,7 @@ Small traffic light detection project using YOLOv8 for detection and SAM for seg
 | YOLOv8n-seg | 3.2M   | ~12    | 0.83      | 0.73         | 0.02       | 0.00747       |
 
 Note: These results may also be affected by annotation quality. Precisely annotating small objects with pixel-wise accuracy is challenging and can impact segmentation metrics.
+
 **Read the full article [here](https://medium.com/@monishatemp20/yolov8-for-small-object-detection-real-world-use-case-on-traffic-lights-f3bbe95c742d)**
 
 ## Sample Predictions for Detection (via YOLOv8n) & Segmentation (via SAM)
