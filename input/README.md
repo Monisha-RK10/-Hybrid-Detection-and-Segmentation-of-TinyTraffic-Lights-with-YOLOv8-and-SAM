@@ -8,3 +8,4 @@
 
 All ~650 curated training images were manually selected from different Bosch folders and consolidated under images/. A full list of selected filenames is available in curated_list.csv for reproducibility.
 
+~100 images are annotated via MakeSense AI tool to use them as ground truth for training YOLOv8ns and YOLOv8s segmentation models.
