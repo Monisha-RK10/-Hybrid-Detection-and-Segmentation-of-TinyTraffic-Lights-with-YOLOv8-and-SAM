@@ -22,14 +22,14 @@ Small traffic light detection project using YOLOv8 for detection and SAM for seg
 
 **Read the full article [here](https://medium.com/@monishatemp20/yolov8-for-small-object-detection-real-world-use-case-on-traffic-lights-f3bbe95c742d)**
 
-## Sample Predictions
+## Sample Predictions for Detection (via YOLOv8n) & Segmentation (via SAM)
 
-### Detection
+### Detection (YOLOv8n)
 ![YOLOv8 Result](results/good_detection_green.jpg)
 ![YOLOv8 Result](results/good_detection_red.jpg)
 ![YOLOv8 Result](results/good_detection_mixed.jpg)
 
-### Segmentation
+### Segmentation (SAM)
 ![SAM Result](results/segmentation_on_green.png)
 ![SAM Result](results/segmentation_on_red.png)
 ![SAM Result](results/segmentation_on_red_green.png)
