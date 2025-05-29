@@ -34,3 +34,11 @@ Trains a **YOLOv8n-seg** model for segmentation using polygon masks.
 Same as above, but using the larger YOLOv8s-seg model.
 
 ---
+
+### `evaluation_sam.py`
+Performs evaluation using a trained YOLOv8 detection model and exports centers, boxes to guide SAM.
+
+- Input: Trained `.pt` weights
+- Output: IoU between GT and predicted masks
+
+---
