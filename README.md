@@ -22,6 +22,23 @@ Small traffic light detection project using YOLOv8 for detection and SAM for seg
 
 Note: These results may also be affected by annotation quality. Precisely annotating small objects with pixel-wise accuracy is challenging and can impact segmentation metrics.
 
+## Evaluation Result (YOLOv8 + SAM on Bosch Traffic Light)
+
+**Total GT Objects Evaluated:** 1186  
+**Matched (IoU > 0.05):** 275 / 1186  
+**Mean IoU:** 0.0757
+
+This is a baseline result using:
+- YOLOv8-predicted bounding boxes
+- Center points as SAM prompts
+- No fine-tuning or post-processing
+
+### Future Directions
+- Improve prompts (e.g., color or brightness-based points)
+- Refine bounding boxes for tighter object fit
+- Apply post-processing to clean predicted masks
+
+
 **Read the full article [here](https://medium.com/@monishatemp20/yolov8-for-small-object-detection-real-world-use-case-on-traffic-lights-f3bbe95c742d)**
 
 ## Sample Predictions for Detection (via YOLOv8n) & Segmentation (via SAM)
