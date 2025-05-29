@@ -36,9 +36,15 @@ Same as above, but using the larger YOLOv8s-seg model.
 ---
 
 ### `evaluation_sam.py`
-Performs evaluation using a trained YOLOv8 detection model and exports centers, boxes to guide SAM.
+Evaluates the hybrid detection + segmentation pipeline using YOLOv8 and SAM (Segment Anything Model).
 
-- Input: Trained `.pt` weights
-- Output: IoU between GT and predicted masks
-
----
+- Input: Trained YOLOv8 `.pt` weights, Bosch annotation JSON
+- Process:
+  - Runs detection using YOLOv8 to get bounding boxes
+  - Computes center points from boxes
+  - Feeds both boxes and points into SAM to predict masks
+  - Computes IoU with ground-truth (GT) segmentation masks
+- Output:
+  - Mean IoU score
+  - Match count based on IoU > 0.05
+  - Terminal print summary for analysis
