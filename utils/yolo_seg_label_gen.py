@@ -2,6 +2,8 @@ import json
 import os
 from pathlib import Path
 
+# Step 5: Generate YOLO segmentation labels for images.
+
 # Paths
 json_path = Path("/content/drive/MyDrive/TrafficSignal/segmentation_updated/annotation.json")
 images_dir = Path("/content/drive/MyDrive/TrafficSignal/segmentation_updated/images/train")
