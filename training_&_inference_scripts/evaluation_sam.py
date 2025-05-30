@@ -6,6 +6,9 @@ import os
 from tqdm import tqdm
 from segment_anything import sam_model_registry, SamPredictor
 
+# Step 10: Evaluate trained YOLOv8 and SAM models by computing IoU between GT (MakeSenseAI) and predicted masks
+# by guiding SAM with image,boxes (labels), centers obtained by YOLOv8 model.
+
 # Load json, images, pre-trained (YOLO+SAM) models.
 annotation_file = "/content/drive/MyDrive/TrafficSignal/segmentation_updated/annotation.json"
 train_dir = "/content/drive/MyDrive/TrafficSignal/makesense"
