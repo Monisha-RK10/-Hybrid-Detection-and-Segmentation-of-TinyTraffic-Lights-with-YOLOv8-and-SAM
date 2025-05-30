@@ -1,3 +1,4 @@
+# Step 7: Load model & yaml to train the model.
 # Train YOLOv8n segmenter model
 
 from ultralytics import YOLO
