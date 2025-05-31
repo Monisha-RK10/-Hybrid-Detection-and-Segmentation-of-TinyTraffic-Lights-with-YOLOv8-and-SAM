@@ -54,3 +54,10 @@ This is a baseline result using:
 
 ### Detection (False positive)
 ![YOLOv8 Result](results/false_positive.jpg)
+
+## Author
+
+**Monisha**  
+Connect via [Medium](https://medium.com/@monishatemp20)  
+
+---
