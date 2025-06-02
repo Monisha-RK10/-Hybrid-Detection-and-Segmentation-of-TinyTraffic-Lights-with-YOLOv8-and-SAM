@@ -2,6 +2,9 @@
 
 Small traffic light detection project using YOLOv8 for detection and SAM for segmentation.
 
+> **Read the full write-up on Medium**:  
+> [Hybrid Detection and Segmentation of Small Traffic Lights using YOLOv8 and SAM](https://medium.com/@monishatemp20/yolov8-for-small-object-detection-real-world-use-case-on-traffic-lights-f3bbe95c742d)
+
 ## Dataset
 - **[BOSCH Dataset](https://hci.iwr.uni-heidelberg.de/content/bosch-small-traffic-lights-dataset)**
 - Contains images and bounding boxes for traffic lights.
@@ -36,9 +39,6 @@ This is a baseline result using:
 - Improve prompts (e.g., color or brightness-based points)
 - Refine bounding boxes for tighter object fit
 - Apply post-processing to clean predicted masks
-
-
-**Read the full article [here](https://medium.com/@monishatemp20/yolov8-for-small-object-detection-real-world-use-case-on-traffic-lights-f3bbe95c742d)**
 
 ## Sample Predictions for Detection (via YOLOv8n) & Segmentation (via SAM)
 
