@@ -25,7 +25,7 @@ def main():
 
     # Load YAML
     with open(yaml_path, 'r') as f:
-        bosch_data = yaml.safe_load(f)
+        bosch_data = yaml.safe_load(f) # loads basic Python objects (like dict, list, str, int)
 
     # Track stats
     num_found = 0
@@ -69,7 +69,7 @@ def main():
                         box_w = (x_max - x_min) / img_w
                         box_h = (y_max - y_min) / img_h
 
-                        out.write(f"{cls} {x_center:.6f} {y_center:.6f} {box_w:.6f} {box_h:.6f}\n")
+                        out.write(f"{cls} {x_center:.6f} {y_center:.6f} {box_w:.6f} {box_h:.6f}\n") # 6 decimal places (standard in YOLO label files)
 
                 num_found += 1
                 found = True
