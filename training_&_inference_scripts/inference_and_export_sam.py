@@ -75,8 +75,8 @@ for image_path in tqdm(image_paths, desc="Processing images"):
         mask, _, _ = predictor.predict(
             point_coords=None,
             point_labels=None,
-            box=input_box[None, :],
-            multimask_output=False
+            box=input_box[None, :], # Adds a batch dimension: SAM expects a batch of boxes, even if just one.
+            multimask_output=False # SAM gives 3 masks per prompt
         )
         if mask is not None and mask[0].any():
             masks.append(mask[0])
