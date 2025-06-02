@@ -71,7 +71,7 @@ for image_path in tqdm(image_paths, desc="Processing images"):
     predictor.set_image(image)
     masks = []
     for box in boxes:
-        input_box = np.array(box)
+        input_box = np.array(box) #  SAM expects NumPy input 
         mask, _, _ = predictor.predict(
             point_coords=None,
             point_labels=None,
