@@ -23,7 +23,7 @@ image_id_to_size = {img['id']: (img['width'], img['height']) for img in coco['im
 annotations_per_image = {}
 for ann in coco['annotations']:
     image_id = ann['image_id']
-    annotations_per_image.setdefault(image_id, []).append(ann)
+    annotations_per_image.setdefault(image_id, []).append(ann) # {1: [ann1, ann2],  2: [ann3],  3: [ann4, ann5, ann6],...}
 
 # Map category_id to zero-based index if needed
 categories = coco['categories']
@@ -31,13 +31,13 @@ category_id_map = {cat['id']: i for i, cat in enumerate(categories)}  # Red: 0, 
 
 # Convert annotations to YOLOv8 segmentation format
 for image_id, file_name in image_id_to_filename.items():
-    width, height = image_id_to_size[image_id]
-    annotations = annotations_per_image.get(image_id, [])
+    width, height = image_id_to_size[image_id] # (W, H) lookup
+    annotations = annotations_per_image.get(image_id, []) # All anns for this image
     lines = []
 
     for ann in annotations:
         category_id = ann['category_id']
-        class_id = category_id_map[category_id]
+        class_id = category_id_map[category_id]  # Map to YOLO class ID
         segmentation = ann['segmentation'][0]  # Only one polygon expected
         xs = segmentation[0::2] # splits the polygon list into X coordinates (every other value starting from index 0)
         ys = segmentation[1::2] # splits the polygon list into Y coordinates (every other value starting from index 1)
