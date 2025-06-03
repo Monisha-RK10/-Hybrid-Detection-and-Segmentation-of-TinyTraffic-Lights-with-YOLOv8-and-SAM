@@ -65,7 +65,7 @@ for img_id in tqdm(image_ids):
 
         # GT masks
         image_shape = image.shape[:2]
-        gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id))
+        gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id)) # Search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
 
         for ann in gt_anns:
             gt_poly = ann['segmentation']
