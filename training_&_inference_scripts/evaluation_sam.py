@@ -38,7 +38,7 @@ def get_center_point(box):
 for img_id in tqdm(image_ids):
     img_info = coco.loadImgs(img_id)[0]
     print('img_info', img_info)
-    img_path = os.path.join(train_dir, img_info['file_name'])  # adjust for train_dir if needed
+    img_path = os.path.join(train_dir, img_info['file_name'])  # Adjust for train_dir if needed
     print('img_path', img_path)
     image = cv2.imread(img_path)
     if image is None:
@@ -65,7 +65,7 @@ for img_id in tqdm(image_ids):
 
         # GT masks
         image_shape = image.shape[:2]
-        gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id)) # Search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
+        gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id)) # Approach 1: search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
 
         for ann in gt_anns:
             gt_poly = ann['segmentation']
