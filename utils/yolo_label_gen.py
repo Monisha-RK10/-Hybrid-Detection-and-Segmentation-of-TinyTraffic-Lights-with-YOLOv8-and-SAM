@@ -54,7 +54,7 @@ def main():
 
                 with open(label_path, 'w') as out:
                     for box in entry['boxes']:
-                        cls = map_label(box['label'])
+                        cls = map_label(box['label']) # Call the function 'map_label'
                         if cls is None:
                             continue
 
