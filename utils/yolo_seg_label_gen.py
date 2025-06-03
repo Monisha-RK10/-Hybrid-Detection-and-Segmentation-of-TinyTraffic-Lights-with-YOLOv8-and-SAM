@@ -20,7 +20,7 @@ image_id_to_filename = {img['id']: img['file_name'] for img in coco['images']}
 image_id_to_size = {img['id']: (img['width'], img['height']) for img in coco['images']}
 
 # Create annotation lists grouped by image_id
-annotations_per_image = {}
+annotations_per_image = {} # Approach 2: Pre-group annotations: O(1) lookup per image (very fast), no repeated filtering/searching.
 for ann in coco['annotations']:
     image_id = ann['image_id']
     annotations_per_image.setdefault(image_id, []).append(ann) # {1: [ann1, ann2],  2: [ann3],  3: [ann4, ann5, ann6],...}
