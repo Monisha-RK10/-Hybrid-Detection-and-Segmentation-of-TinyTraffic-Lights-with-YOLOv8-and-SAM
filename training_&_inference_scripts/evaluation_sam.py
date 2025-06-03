@@ -45,7 +45,7 @@ for img_id in tqdm(image_ids):
         continue
 
     # Predictions
-    detections = yolo_model(img_path)[0].boxes.xyxy.cpu().numpy()
+    detections = yolo_model(img_path)[0].boxes.xyxy.cpu().numpy() # tensor([[124.2, 64.8, 192.7, 108.3]]) ->  [[124, 64, 192, 108]]
     predictor.set_image(image)
     for det_box in detections:
         x1, y1, x2, y2 = map(int, det_box)
