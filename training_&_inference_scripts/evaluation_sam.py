@@ -37,9 +37,7 @@ def get_center_point(box):
 # For each image ID, get all annotations. For each annotation, get segmentation field. Convert polygon format to RLE to binary mask. Perform IoU between GT & predicted masks.
 for img_id in tqdm(image_ids):
     img_info = coco.loadImgs(img_id)[0]
-    print('img_info', img_info)
     img_path = os.path.join(train_dir, img_info['file_name'])  # Adjust for train_dir if needed
-    print('img_path', img_path)
     image = cv2.imread(img_path)
     if image is None:
         continue
