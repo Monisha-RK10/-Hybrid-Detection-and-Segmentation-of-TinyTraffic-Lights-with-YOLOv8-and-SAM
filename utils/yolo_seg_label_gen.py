@@ -27,7 +27,7 @@ for ann in coco['annotations']:
 
 # Map category_id to zero-based index if needed
 categories = coco['categories']
-category_id_map = {cat['id']: i for i, cat in enumerate(categories)}  # {0: 0, 1: 1}  Red: 0, Green: 1
+category_id_map = {cat['id']: i for i, cat in enumerate(categories)}  # cat: each dictionary inside categories, for ex categories = [{"id": 2, "name": "Red"}, {"id": 5, "name": "Green"}] result: category_id_map = {2: 0, 5: 1}
 
 # Convert annotations to YOLOv8 segmentation format
 for image_id, file_name in image_id_to_filename.items():
