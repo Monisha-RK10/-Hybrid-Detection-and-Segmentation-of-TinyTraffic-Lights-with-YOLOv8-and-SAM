@@ -78,7 +78,7 @@ for image_path in tqdm(image_paths, desc="Processing images"):
             box=input_box[None, :], # Adds a batch dimension: SAM expects a batch of boxes, even if just one.
             multimask_output=False # SAM gives 3 masks per prompt
         )
-        if mask is not None and mask[0].any():
+        if mask is not None and mask[0].any(): # To avoid adding blank mask. mask[0] is a binary array for a single instance, .any() checks if it contains any non-zero pixel (i.e., not empty).
             masks.append(mask[0])
 
     # Save image with overlays
