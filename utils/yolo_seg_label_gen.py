@@ -23,11 +23,11 @@ image_id_to_size = {img['id']: (img['width'], img['height']) for img in coco['im
 annotations_per_image = {} # Approach 2: Pre-group annotations: O(1) lookup per image (very fast), no repeated filtering/searching.
 for ann in coco['annotations']:
     image_id = ann['image_id']
-    annotations_per_image.setdefault(image_id, []).append(ann) # {1: [ann1, ann2],  2: [ann3],  3: [ann4, ann5, ann6],...}
+    annotations_per_image.setdefault(image_id, []).append(ann) # setdefault(k, v) checks if k exists in the dictionary, {1: [ann1, ann2],  2: [ann3],  3: [ann4, ann5, ann6],...}
 
 # Map category_id to zero-based index if needed
 categories = coco['categories']
-category_id_map = {cat['id']: i for i, cat in enumerate(categories)}  # Red: 0, Green: 1
+category_id_map = {cat['id']: i for i, cat in enumerate(categories)}  # {0: 0, 1: 1}  Red: 0, Green: 1
 
 # Convert annotations to YOLOv8 segmentation format
 for image_id, file_name in image_id_to_filename.items():
@@ -38,7 +38,7 @@ for image_id, file_name in image_id_to_filename.items():
     for ann in annotations:
         category_id = ann['category_id']
         class_id = category_id_map[category_id]  # Map to YOLO class ID
-        segmentation = ann['segmentation'][0]  # Only one polygon expected
+        segmentation = ann['segmentation'][0]  # Only one polygon expected, to avoid multiple disconnected part
         xs = segmentation[0::2] # splits the polygon list into X coordinates (every other value starting from index 0)
         ys = segmentation[1::2] # splits the polygon list into Y coordinates (every other value starting from index 1)
 
@@ -50,11 +50,11 @@ for image_id, file_name in image_id_to_filename.items():
         w = (x_max - x_min) / width
         h = (y_max - y_min) / height
 
-        # Normalize segmentation points 
+        # Normalize segmentation points (Normalize COCO polygon to YOLO format)
         # if i % 2 == 0: means X coordinate (even indices), divide it by width.
         # if i % 2 != 0: means Y coordinate (odd indices), divide it by height.
         norm_seg = [str(round(x / width, 6)) if i % 2 == 0 else str(round(x / height, 6))
-                    for i, x in enumerate(segmentation)]
+                    for i, x in enumerate(segmentation)] # Rround to 6 decimal places, and convert to string 
 
         line = f"{class_id} {x_center:.6f} {y_center:.6f} {w:.6f} {h:.6f} " + " ".join(norm_seg)
         lines.append(line)
