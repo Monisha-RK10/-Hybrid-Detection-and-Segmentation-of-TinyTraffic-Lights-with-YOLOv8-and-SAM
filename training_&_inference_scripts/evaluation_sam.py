@@ -66,10 +66,10 @@ for img_id in tqdm(image_ids):
         gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id)) # Approach 1: search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
 
         for ann in gt_anns:
-            gt_poly = ann['segmentation']
-            rle = mask_utils.frPyObjects(gt_poly, image_shape[0], image_shape[1])
-            rle = mask_utils.merge(rle)
-            gt_mask = mask_utils.decode(rle)
+            gt_poly = ann['segmentation'] #  list of polygons
+            rle = mask_utils.frPyObjects(gt_poly, image_shape[0], image_shape[1]) # converts each polygon to RLE (Run-Length Encoding)
+            rle = mask_utils.merge(rle) # merges multiple polygons into one RLE mask
+            gt_mask = mask_utils.decode(rle) # converts that RLE into a binary mask
 
             intersection = np.logical_and(pred_mask, gt_mask).sum()
             union = np.logical_or(pred_mask, gt_mask).sum()
