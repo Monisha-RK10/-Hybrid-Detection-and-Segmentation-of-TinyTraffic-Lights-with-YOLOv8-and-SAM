@@ -59,25 +59,25 @@ for img_id in tqdm(image_ids):
             box=input_box[None, :],  # shape: (1, 4)
             multimask_output=False
         )
-        pred_mask = masks[0]
+        pred_mask = masks[0]                                                      # For each predicted mask:
 
         # GT masks
         image_shape = image.shape[:2]
-        gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id)) # Approach 1: search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
+        gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id))                    # Approach 1: search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
 
-        for ann in gt_anns:
-            gt_poly = ann['segmentation'] #  list of polygons
+        for ann in gt_anns:                                                       # Loop over all GT masks
+            gt_poly = ann['segmentation']                                         # list of polygons
             rle = mask_utils.frPyObjects(gt_poly, image_shape[0], image_shape[1]) # converts each polygon to RLE (Run-Length Encoding)
-            rle = mask_utils.merge(rle) # merges multiple polygons into one RLE mask
-            gt_mask = mask_utils.decode(rle) # converts that RLE into a binary mask
+            rle = mask_utils.merge(rle)                                           # merges multiple polygons into one RLE mask
+            gt_mask = mask_utils.decode(rle)                                      # converts that RLE into a binary mask
 
             intersection = np.logical_and(pred_mask, gt_mask).sum()
             union = np.logical_or(pred_mask, gt_mask).sum()
             if union > 0:
-                iou = intersection / union
+                iou = intersection / union                                        
                 total_ious.append(iou)
                 if iou > 0.05:
-                    matched += 1
+                    matched += 1                                                  
                 total_gt += 1
 
 mean_iou = np.mean(total_ious) if total_ious else 0
