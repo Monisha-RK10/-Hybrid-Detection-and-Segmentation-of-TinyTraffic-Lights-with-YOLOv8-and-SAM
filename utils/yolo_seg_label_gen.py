@@ -54,7 +54,7 @@ for image_id, file_name in image_id_to_filename.items():
         # if i % 2 == 0: means X coordinate (even indices), divide it by width.
         # if i % 2 != 0: means Y coordinate (odd indices), divide it by height.
         norm_seg = [str(round(x / width, 6)) if i % 2 == 0 else str(round(x / height, 6))
-                    for i, x in enumerate(segmentation)] # Rround to 6 decimal places, and convert to string 
+                    for i, x in enumerate(segmentation)] # Round to 6 decimal places, and convert to string 
 
         line = f"{class_id} {x_center:.6f} {y_center:.6f} {w:.6f} {h:.6f} " + " ".join(norm_seg)
         lines.append(line)
