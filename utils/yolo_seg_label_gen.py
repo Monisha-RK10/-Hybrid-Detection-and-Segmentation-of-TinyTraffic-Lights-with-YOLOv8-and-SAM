@@ -60,7 +60,7 @@ for image_id, file_name in image_id_to_filename.items():
         lines.append(line)
 
     # Write label file
-    label_file = labels_dir / (Path(file_name).stem + ".txt")
+    label_file = labels_dir / (Path(file_name).stem + ".txt") # returns the file name without the extension.
     with open(label_file, "w") as f:
         f.write("\n".join(lines))
 
