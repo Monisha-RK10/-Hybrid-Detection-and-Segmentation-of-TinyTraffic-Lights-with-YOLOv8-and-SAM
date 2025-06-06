@@ -9,9 +9,7 @@ from segment_anything import sam_model_registry, SamPredictor
 
 # Step 9: Load trained YOLOv8 model and segment the images by sending image & boxes (labels) to SAM model.
 
-# ==========================
-# 1. Setup & Model Loading
-# ==========================
+# Setup & Model Loading
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print("Using device:", device)
 
@@ -23,16 +21,12 @@ sam_checkpoint = "/content/sam_vit_b_01ec64.pth"
 sam = sam_model_registry["vit_b"](checkpoint=sam_checkpoint).to(device)
 predictor = SamPredictor(sam)
 
-# ==========================
-# 2. Paths
-# ==========================
+# Paths
 input_dir = "/content/drive/MyDrive/TrafficSignal/test/images"
 output_dir = "/content/drive/MyDrive/TrafficSignal/result_SAM"
 os.makedirs(output_dir, exist_ok=True)
 
-# ==========================
-# 3. Helper: Save Overlay
-# ==========================
+# Helper: Save Overlay
 def save_image_with_masks(image_bgr, boxes, masks, save_path):
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB).copy()
     overlay = image_rgb.copy()
@@ -52,9 +46,7 @@ def save_image_with_masks(image_bgr, boxes, masks, save_path):
     blended_bgr = cv2.cvtColor(blended, cv2.COLOR_RGB2BGR)
     cv2.imwrite(save_path, blended_bgr)
 
-# ==========================
-# 4. Run for all images
-# ==========================
+# Run for all images
 image_paths = glob.glob(os.path.join(input_dir, "*.png")) + glob.glob(os.path.join(input_dir, "*.jpg"))
 
 for image_path in tqdm(image_paths, desc="Processing images"):
