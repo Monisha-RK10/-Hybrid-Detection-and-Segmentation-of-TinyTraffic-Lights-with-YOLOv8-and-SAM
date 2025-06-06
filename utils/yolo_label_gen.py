@@ -73,7 +73,7 @@ def main():
 
                 num_found += 1
                 found = True
-                break
+                break # improves speed and ensures we don’t accidentally process duplicates.
 
         if not found:
             num_missing += 1
