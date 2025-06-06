@@ -15,10 +15,10 @@ This folder contains dataset metadata, configuration files, and annotation refer
 - **`data.yaml`** (for YOLOv8 detector)  
   Dataset configuration for the curated subset used in detection training and evaluation.
 
-- **`data.yaml`** (for YOLOv8n/s segmenter)  
+- **`data_segmentation.yaml`** (for YOLOv8n/s segmenter)  
   Dataset configuration in segmentation format for YOLOv8n and YOLOv8s training.
 
-- **`annotations.json`** *(from MakeSense.ai)*  
+- **`annotation.json`** *(from MakeSense.ai)*  
   COCO-style polygon masks for ~100 manually annotated images, used as ground truth for YOLOv8 segmentation.
 
 ---
