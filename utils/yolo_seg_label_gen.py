@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 
 # Step 5: Generate YOLO segmentation labels for images.
+# Even though json file is present, used converted polygon segmentation masks into binary masks manually & took care of multiple 
+# segmentation masks per object.
 
 # Paths
 json_path = Path("/content/drive/MyDrive/TrafficSignal/segmentation_updated/annotation.json")
