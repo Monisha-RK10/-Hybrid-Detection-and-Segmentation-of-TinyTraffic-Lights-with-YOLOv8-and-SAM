@@ -19,3 +19,14 @@
 | **GT Annotations**    | Used **same Makesense.ai JSON** but passed it through `pycocotools` to: <br> - Extract polygons <br> - Convert to **binary masks** (via `frPyObjects` → `merge` → `decode`) |
 | **Evaluation**        | Manually computed **IoU = intersection / union** between: <br> - `pred_mask` (from SAM) <br> - `gt_mask` (from pycocotools conversion)       |
 | **No model.eval()**   | Because SAM wasn't trained, it was just used for point/box-based inference                                                            |
+
+## Key Differences
+
+| Item                     | YOLO Seg                  | SAM Inference                    |
+| ------------------------ | ------------------------- | -------------------------------- |
+| Format of GT labels      | YOLO `.txt` polygon files | Makesense JSON (via pycocotools) |
+| Format of predicted mask | Polygon                   | Binary mask                      |
+| Evaluation strategy      | Auto via `yolo` CLI       | Manual IoU code                  |
+| pycocotools used?        | Not needed                | For parsing GT only            |
+| Need to threshold pred?  | Already polygons          |  Already binary (SAM)           |
+
