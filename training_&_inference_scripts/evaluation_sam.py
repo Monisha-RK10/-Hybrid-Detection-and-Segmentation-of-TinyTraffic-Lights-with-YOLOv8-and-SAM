@@ -69,7 +69,7 @@ for img_id in tqdm(image_ids):
             gt_poly = ann['segmentation']                                         # list of polygons
             rle = mask_utils.frPyObjects(gt_poly, image_shape[0], image_shape[1]) # converts each polygon to RLE (Run-Length Encoding)
             rle = mask_utils.merge(rle)                                           # merges multiple polygons into one RLE mask
-            gt_mask = mask_utils.decode(rle)                                      # converts that RLE into a binary mask
+            gt_mask = mask_utils.decode(rle)                                      # converts that RLE into a binary mask, the above three steps are taken care in COCOeval (GT conversion from polygon to binary behind the scenes).
 
             intersection = np.logical_and(pred_mask, gt_mask).sum()
             union = np.logical_or(pred_mask, gt_mask).sum()
