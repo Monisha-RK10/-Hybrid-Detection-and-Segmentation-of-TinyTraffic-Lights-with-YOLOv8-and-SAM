@@ -24,9 +24,9 @@
 
 | Item                     | YOLO Seg                  | SAM Inference                    |
 | ------------------------ | ------------------------- | -------------------------------- |
-| Format of GT labels      | YOLO `.txt` polygon files | Makesense JSON (via pycocotools) |
-| Format of predicted mask | Polygon                   | Binary mask                      |
-| Evaluation strategy      | Auto via `yolo` CLI       | Manual IoU code                  |
-| pycocotools used?        | Not needed                | For parsing GT only            |
-| Need to threshold pred?  | Already polygons          |  Already binary (SAM)           |
+| **Format of GT labels**  | YOLO `.txt` polygon files | Makesense JSON (via pycocotools) |
+| **Format of predicted mask** | Polygon               | Binary mask                      |
+| **Evaluation strategy**     | Auto via `yolo` CLI    | Manual IoU code                  |
+| **pycocotools used?**       | Not needed                | For parsing GT only            |
+| **Need to threshold pred?**  | Already polygons          |  Already binary (SAM)           |
 
