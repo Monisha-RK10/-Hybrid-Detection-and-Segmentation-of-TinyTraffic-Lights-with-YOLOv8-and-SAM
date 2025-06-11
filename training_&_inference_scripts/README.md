@@ -52,4 +52,4 @@ Evaluates the hybrid detection + segmentation pipeline using YOLOv8 and SAM (Seg
 ---
 
 ### `inference_and_export_sam.py`
-Similar to above but only for visualization
+Similar to above, but only for visualization
