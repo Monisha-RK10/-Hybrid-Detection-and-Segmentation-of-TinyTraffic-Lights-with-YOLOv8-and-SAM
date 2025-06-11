@@ -26,7 +26,7 @@ Trains a **YOLOv8n-seg** model for segmentation using polygon masks.
 
 - Task: **Segmentation**
 - Model: YOLOv8n-seg.pt 
-- Requires: `input/data.yaml` (Polygon .txt labels in YOLOv8-seg format), image-label folders
+- Requires: `input/data.yaml`, image-label folders (Polygon .txt labels in YOLOv8-seg format)
 
 ---
 
