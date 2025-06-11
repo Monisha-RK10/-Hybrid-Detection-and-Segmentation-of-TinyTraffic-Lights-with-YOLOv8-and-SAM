@@ -48,3 +48,8 @@ Evaluates the hybrid detection + segmentation pipeline using YOLOv8 and SAM (Seg
   - Mean IoU score
   - Match count based on IoU > 0.05
   - Terminal print summary for analysis
+
+---
+
+### `inference_and_export_sam.py`
+Similar to above but only for visualization
