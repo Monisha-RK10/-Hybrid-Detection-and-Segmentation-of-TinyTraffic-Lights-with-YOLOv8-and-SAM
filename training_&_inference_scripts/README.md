@@ -38,7 +38,7 @@ Same as above, but using the larger YOLOv8s-seg model.
 ### `evaluation_sam.py`
 Evaluates the hybrid detection + segmentation pipeline using YOLOv8 and SAM (Segment Anything Model).
 
-- Input: Trained YOLOv8 `.pt` weights, Bosch annotation JSON
+- Input: Trained YOLOv8 `.pt` weights, annotation JSON from input folder
 - Process:
   - Runs detection using YOLOv8 to get bounding boxes
   - Computes center points from boxes
