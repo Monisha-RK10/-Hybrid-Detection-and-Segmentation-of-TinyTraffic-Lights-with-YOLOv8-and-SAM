@@ -1,4 +1,4 @@
-#  Hybrid Detection and Segmentation of TinyTraffic Lights with YOLOv8 and SAM
+#  Hybrid Detection and Segmentation of Tiny Traffic Lights with YOLOv8 and SAM
 
 Small traffic light detection project using YOLOv8 for detection and SAM for segmentation.
 
