@@ -63,14 +63,14 @@ for image_path in tqdm(image_paths, desc="Processing images"):
     predictor.set_image(image)
     masks = []
     for box in boxes:
-        input_box = np.array(box) #  SAM expects NumPy input 
+        input_box = np.array(box)                          # SAM expects NumPy input 
         mask, _, _ = predictor.predict(
             point_coords=None,
             point_labels=None,
-            box=input_box[None, :], # Adds a batch dimension: SAM expects a batch of boxes, even if just one.
-            multimask_output=False # SAM gives 3 masks per prompt
+            box=input_box[None, :],                        # Adds a batch dimension: SAM expects a batch of boxes, even if just one.
+            multimask_output=False                         # SAM gives 3 masks per prompt
         )
-        if mask is not None and mask[0].any(): # To avoid adding blank mask. mask[0] is a binary array for a single instance, .any() checks if it contains any non-zero pixel (i.e., not empty).
+        if mask is not None and mask[0].any():             # To avoid adding blank mask. mask[0] is a binary array for a single instance, .any() checks if it contains any non-zero pixel (i.e., not empty).
             masks.append(mask[0])
 
     # Save image with overlays
