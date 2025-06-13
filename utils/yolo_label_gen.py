@@ -25,7 +25,7 @@ def main():
 
     # Load YAML
     with open(yaml_path, 'r') as f:
-        bosch_data = yaml.safe_load(f)                                                                  # loads basic Python objects (like dict, list, str, int)
+        bosch_data = yaml.safe_load(f)                                                                  # Loads basic Python objects (like dict, list, str, int)
 
     # Track stats
     num_found = 0
@@ -73,7 +73,7 @@ def main():
 
                 num_found += 1
                 found = True
-                break                                                                                 # improves speed and ensures we don’t accidentally process duplicates.
+                break                                                                                 # Improves speed and ensures we don’t accidentally process duplicates.
 
         if not found:
             num_missing += 1
