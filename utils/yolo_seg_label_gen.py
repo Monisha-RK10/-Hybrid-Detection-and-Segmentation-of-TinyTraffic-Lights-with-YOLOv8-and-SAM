@@ -21,18 +21,18 @@ image_id_to_filename = {img['id']: img['file_name'] for img in coco['images']}
 image_id_to_size = {img['id']: (img['width'], img['height']) for img in coco['images']}
 
 # Create annotation lists grouped by image_id
-annotations_per_image = {}                                                                       # Approach 2: Pre-group annotations: O(1) lookup per image (very fast), no repeated filtering/searching.
+annotations_per_image = {}                                                                       # Approach 2: Pre-group annotations: O(1) lookup per image (very fast), no repeated filtering/searching
 for ann in coco['annotations']:
     image_id = ann['image_id']
-    annotations_per_image.setdefault(image_id, []).append(ann)                                   # setdefault(k, v) checks if k exists in the dictionary, {1: [ann1, ann2],  2: [ann3],  3: [ann4, ann5, ann6],...}
+    annotations_per_image.setdefault(image_id, []).append(ann)                                   # setdefault(k, v) checks if k exists in the dictionary, if not '[]'. Avoids crashing the code. Example: {1: [ann1, ann2],  2: [ann3],  3: [ann4, ann5, ann6],...}
 
 # Map category_id to zero-based index if needed
 categories = coco['categories']
-category_id_map = {cat['id']: i for i, cat in enumerate(categories)}                             # cat: each dictionary inside categories, for ex categories = [{"id": 2, "name": "Red"}, {"id": 5, "name": "Green"}] result: category_id_map = {2: 0, 5: 1}
+category_id_map = {cat['id']: i for i, cat in enumerate(categories)}                             # Ensuring 'id' in categories start from 0. cat: each dictionary inside categories, Example: categories = [{"id": 2, "name": "Red"}, {"id": 5, "name": "Green"}], then result: category_id_map = {2: 0, 5: 1}
 
 # Convert annotations to YOLOv8 segmentation format
 for image_id, file_name in image_id_to_filename.items():
-    width, height = image_id_to_size[image_id] # (W, H) lookup
+    width, height = image_id_to_size[image_id]                                                   # (W, H) lookup
     annotations = annotations_per_image.get(image_id, [])                                        # All anns for this image
     lines = []
 
@@ -57,11 +57,11 @@ for image_id, file_name in image_id_to_filename.items():
         norm_seg = [str(round(x / width, 6)) if i % 2 == 0 else str(round(x / height, 6))
                     for i, x in enumerate(segmentation)]                                         # Round to 6 decimal places, and convert to string 
 
-        line = f"{class_id} {x_center:.6f} {y_center:.6f} {w:.6f} {h:.6f} " + " ".join(norm_seg) # Join elements of the list norm_seg with a space between them.
+        line = f"{class_id} {x_center:.6f} {y_center:.6f} {w:.6f} {h:.6f} " + " ".join(norm_seg) # Join elements of the list 'norm_seg' with a space between them
         lines.append(line)
 
     # Write label file
-    label_file = labels_dir / (Path(file_name).stem + ".txt")                                    # Returns the file name without the extension.
+    label_file = labels_dir / (Path(file_name).stem + ".txt")                                    # stem: Returns the file name without the extension
     with open(label_file, "w") as f:
         f.write("\n".join(lines))
 
