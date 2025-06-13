@@ -7,9 +7,9 @@ from tqdm import tqdm
 from segment_anything import sam_model_registry, SamPredictor
 
 # Step 10: Evaluate trained YOLOv8 and SAM models by computing IoU between GT (MakeSenseAI) and predicted masks
-# by guiding SAM with image,boxes (labels), centers obtained by YOLOv8 model.
+# by guiding SAM with image, boxes (labels), centers obtained by YOLOv8 model.
 
-# Load json, images, pre-trained (YOLO+SAM) models.
+# Load json, images, pre-trained (YOLO + SAM) models.
 annotation_file = "/content/drive/MyDrive/TrafficSignal/segmentation_updated/annotation.json"
 train_dir = "/content/drive/MyDrive/TrafficSignal/makesense"
 yolo_model = YOLO("/content/drive/MyDrive/TrafficSignal/best_100_patience_20.pt")
@@ -37,13 +37,13 @@ def get_center_point(box):
 # For each image ID, get all annotations. For each annotation, get segmentation field. Convert polygon format to RLE to binary mask. Perform IoU between GT & predicted masks.
 for img_id in tqdm(image_ids):
     img_info = coco.loadImgs(img_id)[0]
-    img_path = os.path.join(train_dir, img_info['file_name'])                  # Adjust for train_dir if needed
+    img_path = os.path.join(train_dir, img_info['file_name'])                     # Adjust for train_dir if needed
     image = cv2.imread(img_path)
     if image is None:
         continue
 
     # Predictions
-    detections = yolo_model(img_path)[0].boxes.xyxy.cpu().numpy()               # tensor([[124.2, 64.8, 192.7, 108.3]]) ->  [[124, 64, 192, 108]]
+    detections = yolo_model(img_path)[0].boxes.xyxy.cpu().numpy()                 # tensor([[124.2, 64.8, 192.7, 108.3]]) ->  [[124, 64, 192, 108]]
     predictor.set_image(image)
     for det_box in detections:
         x1, y1, x2, y2 = map(int, det_box)
