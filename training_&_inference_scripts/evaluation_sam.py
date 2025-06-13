@@ -33,11 +33,14 @@ def get_center_point(box):
     cy = int((y1 + y2) / 2)
     return cx, cy
 
-# Loop through all the image ids to get image path. Perform detection on that image (xyxy) via YOLO. Extract center & boxes to guide SAM.
-# For each image ID, get all annotations. For each annotation, get segmentation field. Convert polygon format to RLE to binary mask. Perform IoU between GT & predicted masks.
+# Loop through all the image ids to get image path. 
+# Perform detection on that image (xyxy) via YOLO. Extract center & boxes to guide SAM.
+# For each image ID, get all annotations. For each annotation, get segmentation field. 
+# Convert polygon format to RLE to binary mask. 
+# Perform IoU between GT & predicted masks.
 for img_id in tqdm(image_ids):
     img_info = coco.loadImgs(img_id)[0]
-    img_path = os.path.join(train_dir, img_info['file_name'])                     # Adjust for train_dir if needed
+    img_path = os.path.join(train_dir, img_info['file_name'])                    
     image = cv2.imread(img_path)
     if image is None:
         continue
@@ -66,10 +69,10 @@ for img_id in tqdm(image_ids):
         gt_anns = coco.loadAnns(coco.getAnnIds(imgIds=img_id))                    # Approach 1: search the big annotation list every time (via getAnnIds): clean and readable, speed isn't a concern.
 
         for ann in gt_anns:                                                       # Loop over all GT masks
-            gt_poly = ann['segmentation']                                         # list of polygons
-            rle = mask_utils.frPyObjects(gt_poly, image_shape[0], image_shape[1]) # converts each polygon to RLE (Run-Length Encoding)
-            rle = mask_utils.merge(rle)                                           # merges multiple polygons into one RLE mask
-            gt_mask = mask_utils.decode(rle)                                      # converts that RLE into a binary mask, the above three steps are taken care in COCOeval (GT conversion from polygon to binary behind the scenes).
+            gt_poly = ann['segmentation']                                         # List of polygons
+            rle = mask_utils.frPyObjects(gt_poly, image_shape[0], image_shape[1]) # Converts each polygon to RLE (Run-Length Encoding)
+            rle = mask_utils.merge(rle)                                           # Merges multiple polygons into one RLE mask
+            gt_mask = mask_utils.decode(rle)                                      # Converts that RLE into a binary mask. The above three steps are taken care in COCOeval (GT conversion from polygon to binary behind the scenes).
 
             intersection = np.logical_and(pred_mask, gt_mask).sum()
             union = np.logical_or(pred_mask, gt_mask).sum()
