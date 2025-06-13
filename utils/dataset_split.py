@@ -37,7 +37,7 @@ def main():
     for split, files in splits.items():
         for file in files:
             image_src = os.path.join(image_dir, file)
-            label_src = os.path.join(image_dir, file.rsplit('.', 1)[0] + '.txt') # split the string from right, max 1 time.
+            label_src = os.path.join(image_dir, file.rsplit('.', 1)[0] + '.txt')           # split the string from right, max 1 time.
 
             image_dst = os.path.join(base_dir, split, 'images', file)
             label_dst = os.path.join(base_dir, split, 'labels', os.path.basename(label_src))
