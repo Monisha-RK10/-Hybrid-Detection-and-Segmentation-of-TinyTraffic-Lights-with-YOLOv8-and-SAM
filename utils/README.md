@@ -3,6 +3,7 @@
 Utility scripts to preprocess data and generate YOLOv8-compatible annotations for both detection and segmentation tasks.
 
 ---
+## Files
 
 ### `dataset_split.py`
 Splits the detection dataset into **70% training**, **20% validation**, and **10% testing** by moving images and labels into corresponding folders.
