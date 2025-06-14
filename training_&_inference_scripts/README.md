@@ -3,6 +3,7 @@
 This folder contains scripts for training and evaluating YOLOv8 and SAM models for both detection and segmentation tasks on the Bosch Small Traffic Lights dataset.
 
 ---
+## Files
 
 ### `train_yolo.py`
 Trains a YOLOv8 detection model on the curated dataset.
