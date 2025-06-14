@@ -1,9 +1,9 @@
+# Step 2: Train/val/test Split
+# This code splits the cleaned Bosch subset into train, val, and test sets.
+
 import os
 import random
 import shutil
-
-# Step 2: Train/val/test Split
-# This code splits the cleaned Bosch subset into train, val, and test sets.
 
 def main():
     # Base paths
