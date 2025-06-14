@@ -1,8 +1,8 @@
+# Step 6: Train/val Split 
+
 import os
 import random
 import shutil
-
-# Step 6: Train/val Split 
 
 # Base folder path
 base_path = "/content/drive/MyDrive/TrafficSignal/segmentation_updated"
