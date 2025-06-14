@@ -1,3 +1,5 @@
+# Step 9: Load trained YOLOv8 model and segment the images by sending image & boxes (labels) to SAM model.
+
 import os
 import glob
 import torch
@@ -6,8 +8,6 @@ import numpy as np
 from tqdm import tqdm
 from ultralytics import YOLO
 from segment_anything import sam_model_registry, SamPredictor
-
-# Step 9: Load trained YOLOv8 model and segment the images by sending image & boxes (labels) to SAM model.
 
 # Setup & Model Loading
 device = "cuda" if torch.cuda.is_available() else "cpu"
