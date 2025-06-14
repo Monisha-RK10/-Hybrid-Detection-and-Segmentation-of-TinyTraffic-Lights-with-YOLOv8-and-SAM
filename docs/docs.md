@@ -1,6 +1,6 @@
 # Evaluation Pipeline for YOLO seg & SAM
 
-## YOLOv8 Segmentation Pipeline Summary
+### YOLOv8 Segmentation Pipeline Summary
 
 | Step                  | Process                                                                                                                                     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,7 +10,7 @@
 | **Evaluation**        | - Automatically handled by Ultralytics during training (per-epoch val mAP, IoU) <br> - No need for `pycocotools`, no manual binary masks, no custom IoU |
 | **Model Output**      | Predictions are in **polygon format** (saved in `runs/segment/exp/`)                |
 
-## SAM + Evaluation Pipeline Summary
+### SAM + Evaluation Pipeline Summary
 
 | Step                  | Process                 |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -20,7 +20,7 @@
 | **Evaluation**        | Manually computed **IoU = intersection / union** between: <br> - `pred_mask` (from SAM) <br> - `gt_mask` (from pycocotools conversion)       |
 | **No model.eval()**   | Because SAM wasn't trained, it was just used for point/box-based inference                                                            |
 
-## Key Differences
+### Key Differences
 
 | Item                     | YOLO Seg                  | SAM Inference                    |
 | ------------------------ | ------------------------- | -------------------------------- |
