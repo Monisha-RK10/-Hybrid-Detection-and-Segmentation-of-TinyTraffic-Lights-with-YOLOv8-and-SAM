@@ -1,10 +1,10 @@
-import yaml
-import os
-from PIL import Image
-
 # Step 1: Generate YOLO labels for images.
 # This piece of code generates labels for the selected subset of clean images.
 # Labels are extracted from the train.yaml with the help of image name (Bosch dataset follows global name).
+
+import yaml
+import os
+from PIL import Image
 
 # Helper function to map labels to YOLO classes
 def map_label(label):
