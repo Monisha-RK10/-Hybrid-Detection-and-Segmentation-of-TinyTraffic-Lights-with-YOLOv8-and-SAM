@@ -1,9 +1,10 @@
+# Step 5: Generate YOLO segmentation labels for images.
+# YOLOv8 segmentation format: (class cx cy w h [x1 y1 x2 y2 ...]). Not binary masks, but polygon-based labels.
+
 import json
 import os
 from pathlib import Path
 
-# Step 5: Generate YOLO segmentation labels for images.
-# YOLOv8 segmentation format: (class cx cy w h [x1 y1 x2 y2 ...]). Not binary masks, but polygon-based labels.
 
 # Paths
 json_path = Path("/content/drive/MyDrive/TrafficSignal/segmentation_updated/annotation.json")
